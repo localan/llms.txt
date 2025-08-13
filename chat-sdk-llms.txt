@@ -1,0 +1,1397 @@
+# https://chat-sdk.dev/ llms-full.txt
+
+## Chat SDK
+[Chat SDK](https://chat-sdk.dev/)
+
+Search…
+`/` [GitHub](https://github.com/vercel/ai-chatbot)
+
+# Chat SDK
+
+Chat SDK is a free, open-source template that helps you dive right into building powerful chatbot applications.
+
+[Get Started](https://chat-sdk.dev/docs) [Try It Out](https://chat.vercel.ai/)
+
+How can I assist you today?
+
+### Fully customizable
+
+Customize your chatbot to fit the needs of your enterprise business or even your hobby project.
+
+### Up to date
+
+Stay up to date with the advancements in user experience and model capabilities like artifacts and reasoning.
+
+### Best practices
+
+We ensure the chatbot follows best practices so you can focus on building the important parts.
+
+## Deploy your chatbot today.
+
+[Deploy on Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fai-chatbot&env=AUTH_SECRET&envDescription=Learn+more+about+how+to+get+the+API+Keys+for+the+application&envLink=https%3A%2F%2Fgithub.com%2Fvercel%2Fai-chatbot%2Fblob%2Fmain%2F.env.example&demo-title=AI+Chatbot&demo-description=An+Open-Source+AI+Chatbot+Template+Built+With+Next.js+and+the+AI+SDK+by+Vercel.&demo-url=https%3A%2F%2Fchat.vercel.ai&products=%5B%7B%22type%22%3A%22integration%22%2C%22protocol%22%3A%22ai%22%2C%22productSlug%22%3A%22grok%22%2C%22integrationSlug%22%3A%22xai%22%7D%2C%7B%22type%22%3A%22integration%22%2C%22protocol%22%3A%22storage%22%2C%22productSlug%22%3A%22neon%22%2C%22integrationSlug%22%3A%22neon%22%7D%2C%7B%22type%22%3A%22integration%22%2C%22protocol%22%3A%22storage%22%2C%22productSlug%22%3A%22upstash-kv%22%2C%22integrationSlug%22%3A%22upstash%22%7D%2C%7B%22type%22%3A%22blob%22%7D%5D) [Get Started](https://chat-sdk.dev/docs)
+
+## Chat SDK Theming
+[Chat SDK](https://chat-sdk.dev/)
+
+Search…
+`/` [GitHub](https://github.com/vercel/ai-chatbot)
+
+- Getting started
+
+- [Overview](https://chat-sdk.dev/docs/getting-started/overview)
+- [Setup](https://chat-sdk.dev/docs/getting-started/setup)
+- [Architecture](https://chat-sdk.dev/docs/getting-started/architecture)
+
+- Customization
+
+- [Models and Providers](https://chat-sdk.dev/docs/customization/models-and-providers)
+- [Artifacts](https://chat-sdk.dev/docs/customization/artifacts)
+- [Theming](https://chat-sdk.dev/docs/customization/theming)
+- [Fonts](https://chat-sdk.dev/docs/customization/fonts)
+- [Testing](https://chat-sdk.dev/docs/customization/testing)
+- [Resumable Streams](https://chat-sdk.dev/docs/customization/resumable-streams)
+
+- Migration guides
+
+- [Migrating to Message Parts](https://chat-sdk.dev/docs/migration-guides/message-parts)
+
+- Resources
+
+- [Changelog](https://chat-sdk.dev/docs/resources/changelog)
+- [Report an Issue](https://chat-sdk.dev/docs/resources/issue)
+
+Menu
+
+Customization
+
+# Theming
+
+Personalize the colors, spacing, and shapes of your project's user interface.
+
+Chat SDK uses [Tailwind](https://tailwindcss.com/) for styling and [shadcn/ui](https://ui.shadcn.com/) for components. Since most of the components used in the Chat SDK like buttons and inputs are built using shadcn/ui primitives, you can collectively customize the appearance of the components to follow the theme of your application by modifying the CSS variables in `app/global.css`.
+
+## [Convention](https://chat-sdk.dev/docs/customization/theming\#convention)
+
+You can use a simple `background` and `foreground` convention for colors. The `background` variable is used for the background color of the component and the `foreground` variable is used for the text color.
+
+The `background` suffix is omitted when the variable is used for the background color of the component.
+
+Given the following CSS variables:
+
+```font-mono
+--primary: 240 5.9% 10%;
+--primary-foreground: 0 0% 98%;
+```
+
+The `background` color of the following component will be `var(--primary)` and the `foreground` color will be `var(--primary-foreground)`.
+
+```font-mono
+<div className="bg-primary text-primary-foreground">Hello</div>
+```
+
+## [List of variables](https://chat-sdk.dev/docs/customization/theming\#list-of-variables)
+
+Here's the list of variables available for customization:
+
+app/globals.css
+
+```font-mono
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 240 10% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 10% 3.9%;
+        --primary: 240 5.9% 10%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 240 4.8% 95.9%;
+        --secondary-foreground: 240 5.9% 10%;
+        --muted: 240 4.8% 95.9%;
+        --muted-foreground: 240 3.8% 46.1%;
+        --accent: 240 4.8% 95.9%;
+        --accent-foreground: 240 5.9% 10%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 5.9% 90%;
+        --input: 240 5.9% 90%;
+        --ring: 240 10% 3.9%;
+        --chart-1: 12 76% 61%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+        --radius: 0.5rem;
+        --sidebar-background: 0 0% 98%;
+        --sidebar-foreground: 240 5.3% 26.1%;
+        --sidebar-primary: 240 5.9% 10%;
+        --sidebar-primary-foreground: 0 0% 98%;
+        --sidebar-accent: 240 4.8% 95.9%;
+        --sidebar-accent-foreground: 240 5.9% 10%;
+        --sidebar-border: 220 13% 91%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+    .dark {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 240 10% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+        --sidebar-background: 240 5.9% 10%;
+        --sidebar-foreground: 240 4.8% 95.9%;
+        --sidebar-primary: 224.3 76.3% 48%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 240 3.7% 15.9%;
+        --sidebar-accent-foreground: 240 4.8% 95.9%;
+        --sidebar-border: 240 3.7% 15.9%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+}
+```
+
+[Previous\\
+Artifacts](https://chat-sdk.dev/docs/customization/artifacts) [Next \\
+Fonts](https://chat-sdk.dev/docs/customization/fonts)
+
+## Chat SDK Testing
+[Chat SDK](https://chat-sdk.dev/)
+
+Search…
+`/` [GitHub](https://github.com/vercel/ai-chatbot)
+
+- Getting started
+
+- [Overview](https://chat-sdk.dev/docs/getting-started/overview)
+- [Setup](https://chat-sdk.dev/docs/getting-started/setup)
+- [Architecture](https://chat-sdk.dev/docs/getting-started/architecture)
+
+- Customization
+
+- [Models and Providers](https://chat-sdk.dev/docs/customization/models-and-providers)
+- [Artifacts](https://chat-sdk.dev/docs/customization/artifacts)
+- [Theming](https://chat-sdk.dev/docs/customization/theming)
+- [Fonts](https://chat-sdk.dev/docs/customization/fonts)
+- [Testing](https://chat-sdk.dev/docs/customization/testing)
+- [Resumable Streams](https://chat-sdk.dev/docs/customization/resumable-streams)
+
+- Migration guides
+
+- [Migrating to Message Parts](https://chat-sdk.dev/docs/migration-guides/message-parts)
+
+- Resources
+
+- [Changelog](https://chat-sdk.dev/docs/resources/changelog)
+- [Report an Issue](https://chat-sdk.dev/docs/resources/issue)
+
+Menu
+
+Customization
+
+# Testing
+
+Simulate end-to-end user interactions and validate their results.
+
+Testing your Chat SDK application involves two key components:
+
+- **E2E Tests**: End-to-end tests simulate the full lifecycle of the application, from user interactions to server responses.
+- **Mock Models**: Mock language models simulate responses based on different prompts.
+
+## [End-to-End Testing With Playwright](https://chat-sdk.dev/docs/customization/testing\#end-to-end-testing-with-playwright)
+
+Chat SDK ships with [Playwright](https://playwright.dev/) for end-to-end testing. Playwright is a powerful tool for automating web browsers and testing web applications, so it's a great choice for testing your Chat SDK application as well. Playwright also provides a simple API for writing tests, and it supports multiple browsers, including Chrome, Firefox, and WebKit.
+
+Your project already comes with a set of tests that check the basic functionality of the Chat SDK. These tests can be found in the `tests` directory of your project.
+
+Along with these tests, there are also a few helper classes that you can use to make your tests more readable and maintainable. These classes provide a set of common actions that you can use to interact with the Chat SDK application, such as logging in, creating a new chat, and sending a message. These helper classes are located in the `tests/pages` directory of your project.
+
+### [Writing a Test](https://chat-sdk.dev/docs/customization/testing\#writing-a-test)
+
+The following is an example of a test that uses the helper classes to create a new chat and send a message.
+
+tests/chat.test.ts
+
+```font-mono
+import { ChatPage } from './pages/chat';
+import { test, expect } from '@playwright/test';
+
+test.describe('chat activity', () => {
+  let chatPage: ChatPage;
+
+  test.beforeEach(async ({ page }) => {
+    chatPage = new ChatPage(page);
+    await chatPage.createNewChat();
+  });
+
+  test('send a user message and receive response', async () => {
+    await chatPage.sendUserMessage('Why is grass green?');
+    await chatPage.isGenerationComplete();
+
+    const assistantMessage = await chatPage.getRecentAssistantMessage();
+    expect(assistantMessage.content).toContain("It's just green duh!");
+  });
+});
+```
+
+### [Creating Mock Models](https://chat-sdk.dev/docs/customization/testing\#creating-mock-models)
+
+Testing language models can be challenging, because they are non-deterministic and calling them is slow and expensive.
+
+Chat SDK uses a test provider with mock models to simulate the behavior of the different language models. These models are defined in `lib/ai/models.test.ts`.
+
+lib/ai/models.test.ts
+
+```font-mono
+import { simulateReadableStream } from 'ai';
+import { MockLanguageModelV1 } from 'ai/test';
+import { getResponseChunksByPrompt } from '@/tests/prompts/utils';
+
+export const chatModel = new MockLanguageModelV1({
+  doStream: async ({ prompt }) => ({
+    stream: simulateReadableStream({
+      chunkDelayInMs: 50,
+      initialDelayInMs: 100,
+      chunks: getResponseChunksByPrompt(prompt),
+    }),
+    rawCall: { rawPrompt: null, rawSettings: {} },
+  }),
+});
+```
+
+You also have the ability to define the response outputs based on the input prompt. This allows you to test different capabilities like tool calling, artifacts, reasoning, etc. You can define the response outputs in `tests/prompts/utils.ts`.
+
+tests/prompts/utils.ts
+
+```font-mono
+if (compareMessages(recentMessage, TEST_PROMPTS.USER_SKY)) {
+  return [\
+    ...reasoningToDeltas('The sky is blue because of rayleigh scattering!'),\
+    ...textToDeltas("It's just blue duh!"),\
+    {\
+      type: 'finish',\
+      finishReason: 'stop',\
+      logprobs: undefined,\
+      usage: { completionTokens: 10, promptTokens: 3 },\
+    },\
+  ];
+}
+```
+
+[Previous\\
+Fonts](https://chat-sdk.dev/docs/customization/fonts) [Next \\
+Resumable Streams](https://chat-sdk.dev/docs/customization/resumable-streams)
+
+## Custom Artifacts
+[Chat SDK](https://chat-sdk.dev/)
+
+Search…
+`/` [GitHub](https://github.com/vercel/ai-chatbot)
+
+- Getting started
+
+- [Overview](https://chat-sdk.dev/docs/getting-started/overview)
+- [Setup](https://chat-sdk.dev/docs/getting-started/setup)
+- [Architecture](https://chat-sdk.dev/docs/getting-started/architecture)
+
+- Customization
+
+- [Models and Providers](https://chat-sdk.dev/docs/customization/models-and-providers)
+- [Artifacts](https://chat-sdk.dev/docs/customization/artifacts)
+- [Theming](https://chat-sdk.dev/docs/customization/theming)
+- [Fonts](https://chat-sdk.dev/docs/customization/fonts)
+- [Testing](https://chat-sdk.dev/docs/customization/testing)
+- [Resumable Streams](https://chat-sdk.dev/docs/customization/resumable-streams)
+
+- Migration guides
+
+- [Migrating to Message Parts](https://chat-sdk.dev/docs/migration-guides/message-parts)
+
+- Resources
+
+- [Changelog](https://chat-sdk.dev/docs/resources/changelog)
+- [Report an Issue](https://chat-sdk.dev/docs/resources/issue)
+
+Menu
+
+Customization
+
+# Artifacts
+
+Integrate workspaces for activities that involve complex and persistent user interactions
+
+Artifacts is a special user interface mode that allows you to have a workspace like interface along with the chat interface. This is similar to [ChatGPT's Canvas](https://openai.com/index/introducing-canvas) and [Claude's Artifacts](https://www.anthropic.com/news/artifacts).
+
+The template already ships with the following artifacts:
+
+- **Text Artifact**: Work with text content like drafting essays and emails.
+- **Code Artifact**: Write and execute code snippets.
+- **Image Artifact**: Work with images like editing, annotating, and processing images.
+- **Sheet Artifact**: Work with tabular data like creating, editing, and analyzing data.
+
+## [Adding a Custom Artifact](https://chat-sdk.dev/docs/customization/artifacts\#adding-a-custom-artifact)
+
+To add a custom artifact, you will need to create a folder in the `artifacts` directory with the artifact name. The folder should contain the following files:
+
+- `client.tsx`: The client-side code for the artifact.
+- `server.ts`: The server-side code for the artifact.
+
+Here is an example of a custom artifact called `CustomArtifact`:
+
+```font-mono
+artifacts/
+  custom/
+    client.tsx
+    server.ts
+```
+
+### [Client-Side Example (client.tsx)](https://chat-sdk.dev/docs/customization/artifacts\#client-side-example-clienttsx)
+
+This file is responsible for rendering your custom artifact. You might replace the inner UI with your own components, but the overall pattern (initialization, handling streamed data, and rendering content) remains the same. For instance:
+
+```font-mono
+import { Artifact } from "@/components/create-artifact";
+import { ExampleComponent } from "@/components/example-component";
+import { toast } from "sonner";
+
+interface CustomArtifactMetadata {
+  // Define metadata your custom artifact might need—the example below is minimal.
+  info: string;
+}
+
+export const customArtifact = new Artifact<"custom", CustomArtifactMetadata>({
+  kind: "custom",
+  description: "A custom artifact for demonstrating custom functionality.",
+  // Initialization can fetch any extra data or perform side effects
+  initialize: async ({ documentId, setMetadata }) => {
+    // For example, initialize the artifact with default metadata.
+    setMetadata({
+      info: `Document ${documentId} initialized.`,
+    });
+  },
+  // Handle streamed parts from the server (if your artifact supports streaming updates)
+  onStreamPart: ({ streamPart, setMetadata, setArtifact }) => {
+    if (streamPart.type === "info-update") {
+      setMetadata((metadata) => ({
+        ...metadata,
+        info: streamPart.content as string,
+      }));
+    }
+    if (streamPart.type === "content-update") {
+      setArtifact((draftArtifact) => ({
+        ...draftArtifact,
+        content: draftArtifact.content + (streamPart.content as string),
+        status: "streaming",
+      }));
+    }
+  },
+  // Defines how the artifact content is rendered
+  content: ({
+    mode,
+    status,
+    content,
+    isCurrentVersion,
+    currentVersionIndex,
+    onSaveContent,
+    getDocumentContentById,
+    isLoading,
+    metadata,
+  }) => {
+    if (isLoading) {
+      return <div>Loading custom artifact...</div>;
+    }
+
+    if (mode === "diff") {
+      const oldContent = getDocumentContentById(currentVersionIndex - 1);
+      const newContent = getDocumentContentById(currentVersionIndex);
+      return (
+        <div>
+          <h3>Diff View</h3>
+          <pre>{oldContent}</pre>
+          <pre>{newContent}</pre>
+        </div>
+      );
+    }
+
+    return (
+      <div className="custom-artifact">
+        <ExampleComponent
+          content={content}
+          metadata={metadata}
+          onSaveContent={onSaveContent}
+          isCurrentVersion={isCurrentVersion}
+        />
+        <button
+          onClick={() => {
+            navigator.clipboard.writeText(content);
+            toast.success("Content copied to clipboard!");
+          }}
+        >
+          Copy
+        </button>
+      </div>
+    );
+  },
+  // An optional set of actions exposed in the artifact toolbar.
+  actions: [\
+    {\
+      icon: <span>⟳</span>,\
+      description: "Refresh artifact info",\
+      onClick: ({ appendMessage }) => {\
+        appendMessage({\
+          role: "user",\
+          content: "Please refresh the info for my custom artifact.",\
+        });\
+      },\
+    },\
+  ],
+  // Additional toolbar actions for more control
+  toolbar: [\
+    {\
+      icon: <span>✎</span>,\
+      description: "Edit custom artifact",\
+      onClick: ({ appendMessage }) => {\
+        appendMessage({\
+          role: "user",\
+          content: "Edit the custom artifact content.",\
+        });\
+      },\
+    },\
+  ],
+});
+```
+
+Server-Side Example (server.ts)
+
+The server file processes the document for the artifact. It streams updates (if applicable) and returns the final content. For example:
+
+```font-mono
+import { smoothStream, streamText } from "ai";
+import { myProvider } from "@/lib/ai/providers";
+import { createDocumentHandler } from "@/lib/artifacts/server";
+import { updateDocumentPrompt } from "@/lib/ai/prompts";
+
+export const customDocumentHandler = createDocumentHandler<"custom">({
+  kind: "custom",
+  // Called when the document is first created.
+  onCreateDocument: async ({ title, dataStream }) => {
+    let draftContent = "";
+    // For demonstration, use streamText to generate content.
+    const { fullStream } = streamText({
+      model: myProvider.languageModel("artifact-model"),
+      system:
+        "Generate a creative piece based on the title. Markdown is supported.",
+      experimental_transform: smoothStream({ chunking: "word" }),
+      prompt: title,
+    });
+
+    // Stream the content back to the client.
+    for await (const delta of fullStream) {
+      if (delta.type === "text-delta") {
+        draftContent += delta.textDelta;
+        dataStream.writeData({
+          type: "content-update",
+          content: delta.textDelta,
+        });
+      }
+    }
+
+    return draftContent;
+  },
+  // Called when updating the document based on user modifications.
+  onUpdateDocument: async ({ document, description, dataStream }) => {
+    let draftContent = "";
+    const { fullStream } = streamText({
+      model: myProvider.languageModel("artifact-model"),
+      system: updateDocumentPrompt(document.content, "custom"),
+      experimental_transform: smoothStream({ chunking: "word" }),
+      prompt: description,
+      experimental_providerMetadata: {
+        openai: {
+          prediction: {
+            type: "content",
+            content: document.content,
+          },
+        },
+      },
+    });
+
+    for await (const delta of fullStream) {
+      if (delta.type === "text-delta") {
+        draftContent += delta.textDelta;
+        dataStream.writeData({
+          type: "content-update",
+          content: delta.textDelta,
+        });
+      }
+    }
+
+    return draftContent;
+  },
+});
+```
+
+Once you have created the client and server files, you can import the artifact in the `lib/artifacts/server.ts` file and add it to the `documentHandlersByArtifactKind` array.
+
+```font-mono
+export const documentHandlersByArtifactKind: Array<DocumentHandler> = [\
+  ...,\
+  customDocumentHandler,\
+];
+
+export const artifactKinds = [..., "custom"] as const;
+```
+
+Specify it in document schema at `lib/db/schema.ts`.
+
+```font-mono
+export const document = pgTable(
+  "Document",
+  {
+    id: uuid("id").notNull().defaultRandom(),
+    createdAt: timestamp("createdAt").notNull(),
+    title: text("title").notNull(),
+    content: text("content"),
+    kind: varchar("text", { enum: [..., "custom"] }) // Add the custom artifact kind here
+      .notNull()
+      .default("text"),
+    userId: uuid("userId")
+      .notNull()
+      .references(() => user.id),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.id, table.createdAt] }),
+    };
+  },
+);
+```
+
+And also add the client-side artifact to the `artifactDefinitions` array in the `components/artifact.tsx` file.
+
+```font-mono
+import { customArtifact } from "@/artifacts/custom/client";
+
+export const artifactDefinitions = [..., customArtifact];
+```
+
+You should now be able to see the custom artifact in the workspace!
+
+[Previous\\
+Models and Providers](https://chat-sdk.dev/docs/customization/models-and-providers) [Next \\
+Theming](https://chat-sdk.dev/docs/customization/theming)
+
+## Chat SDK Changelog
+[Chat SDK](https://chat-sdk.dev/)
+
+Search…
+`/` [GitHub](https://github.com/vercel/ai-chatbot)
+
+- Getting started
+
+- [Overview](https://chat-sdk.dev/docs/getting-started/overview)
+- [Setup](https://chat-sdk.dev/docs/getting-started/setup)
+- [Architecture](https://chat-sdk.dev/docs/getting-started/architecture)
+
+- Customization
+
+- [Models and Providers](https://chat-sdk.dev/docs/customization/models-and-providers)
+- [Artifacts](https://chat-sdk.dev/docs/customization/artifacts)
+- [Theming](https://chat-sdk.dev/docs/customization/theming)
+- [Fonts](https://chat-sdk.dev/docs/customization/fonts)
+- [Testing](https://chat-sdk.dev/docs/customization/testing)
+- [Resumable Streams](https://chat-sdk.dev/docs/customization/resumable-streams)
+
+- Migration guides
+
+- [Migrating to Message Parts](https://chat-sdk.dev/docs/migration-guides/message-parts)
+
+- Resources
+
+- [Changelog](https://chat-sdk.dev/docs/resources/changelog)
+- [Report an Issue](https://chat-sdk.dev/docs/resources/issue)
+
+Menu
+
+Resources
+
+# Changelog
+
+View the latest updates and changes to Chat SDK.
+
+[v3.1.1](https://github.com/vercel/ai-chatbot/commit/fea44dd)
+
+- Fix message ordering
+
+* * *
+
+[v3.1.0](https://github.com/vercel/ai-chatbot/commit/4c281fe)
+
+- Update to ai sdk v5 beta
+- You can learn more about the changes made by goung through the [v5 Migration Guide](https://v5.ai-sdk.dev/docs/migration-guides/migration-guide-5-0).
+
+* * *
+
+[v3.0.23](https://github.com/vercel/ai-chatbot/commit/8a7d3e9)
+
+- Improve error messages
+
+* * *
+
+[v3.0.21](https://github.com/vercel/ai-chatbot/commit/3539596)
+
+- Initialize otel collector
+
+* * *
+
+[v3.0.20](https://github.com/vercel/ai-chatbot/commit/75af132)
+
+- Fix race condition after resumable stream ends
+
+* * *
+
+[v3.0.19](https://github.com/vercel/ai-chatbot/commit/7402af0)
+
+- Fallback to normal stream if cannot resume stream
+
+* * *
+
+[v3.0.18](https://github.com/vercel/ai-chatbot/commit/e529d99)
+
+- Strip tags from output
+
+* * *
+
+[v3.0.17](https://github.com/vercel/ai-chatbot/commit/575c125)
+
+- Support setting visibility on initial chat creation
+
+* * *
+
+[v3.0.16](https://github.com/vercel/ai-chatbot/commit/a3221fb)
+
+- Support resuming ongoing streams
+
+* * *
+
+[v3.0.15](https://github.com/vercel/ai-chatbot/commit/45978c2)
+
+- Update auto scroll mechanism
+
+* * *
+
+[v3.0.14](https://github.com/vercel/ai-chatbot/commit/1fd2302)
+
+- Tweak migration script to handle message order
+
+* * *
+
+[v3.0.13](https://github.com/vercel/ai-chatbot/commit/1a948af)
+
+- Conditionally render attachments component
+
+* * *
+
+[v3.0.12](https://github.com/vercel/ai-chatbot/commit/721b30e)
+
+- Do not include backticks for code blocks
+
+* * *
+
+[v3.0.11](https://github.com/vercel/ai-chatbot/commit/23964e3)
+
+- Support appending request hints to prompt
+
+* * *
+
+[v3.0.10](https://github.com/vercel/ai-chatbot/commit/845b40f)
+
+- Update test content order
+
+* * *
+
+[v3.0.9](https://github.com/vercel/ai-chatbot/commit/451a866)
+
+- Support message creation from url query
+
+* * *
+
+[v3.0.8](https://github.com/vercel/ai-chatbot/commit/f18af23)
+
+- Only send user message as part of request
+
+* * *
+
+[v3.0.7](https://github.com/vercel/ai-chatbot/commit/9279135)
+
+- Support guest session
+
+* * *
+
+[v3.0.6](https://github.com/vercel/ai-chatbot/commit/24cb2ce)
+
+- Move server functions to db/utils
+
+* * *
+
+[v3.0.5](https://github.com/vercel/ai-chatbot/commit/a159b77)
+
+- Add tests for /api/chat
+
+* * *
+
+[v3.0.4](https://github.com/vercel/ai-chatbot/commit/4ca93aa)
+
+- Mask differences in auth duration
+
+* * *
+
+[v3.0.4](https://github.com/vercel/ai-chatbot/commit/6e16f3b)
+
+- Organize tests and tweak stream delays
+
+* * *
+
+[v3.0.3](https://github.com/vercel/ai-chatbot/commit/020494f)
+
+- Add tests for /api/document
+
+* * *
+
+[v3.0.2](https://github.com/vercel/ai-chatbot/commit/5b4ad94)
+
+- Replace patch with delete for /api/document
+
+* * *
+
+[v3.0.1](https://github.com/vercel/ai-chatbot/commit/c937db3)
+
+- Verify document ownership before appending version
+
+* * *
+
+[v3.0.0](https://github.com/vercel/ai-chatbot/commit/291c6ab)
+
+- Use semver
+
+* * *
+
+[ccbc649](https://github.com/vercel/ai-chatbot/commit/ccbc649)
+
+- Replace overview with greeting on new chat page
+
+* * *
+
+[a07a3aa](https://github.com/vercel/ai-chatbot/commit/a07a3aa)
+
+- Paginate chat history
+
+* * *
+
+[235b0ed](https://github.com/vercel/ai-chatbot/commit/235b0ed)
+
+- Use xAI as primary image model
+
+* * *
+
+[9058240](https://github.com/vercel/ai-chatbot/commit/9058240)
+
+- Center align the plus icon
+
+* * *
+
+[1a8cd99](https://github.com/vercel/ai-chatbot/commit/1a8cd99)
+
+- Reference geist typeface from google fonts
+
+* * *
+
+[90e1c83](https://github.com/vercel/ai-chatbot/commit/90e1c83)
+
+- Poll votes only after reaching minimum message count
+
+* * *
+
+[47a630f](https://github.com/vercel/ai-chatbot/commit/47a630f)
+
+- Create tables `Message_v2` and `Vote_v2` with updated schema
+- Update `components/message.tsx` to render content based on `message.parts`
+- Add migration script and guide
+- Use `UseChatHelper` as type
+- Replace `Message` type with `UIMessage`
+
+* * *
+
+[553a3d8](https://github.com/vercel/ai-chatbot/commit/553a3d8)
+
+- Replace `isLoading` (deprecated) with `status` in `useChat`
+
+[Previous\\
+Migrating to Message Parts](https://chat-sdk.dev/docs/migration-guides/message-parts) [Next \\
+Report an Issue](https://chat-sdk.dev/docs/resources/issue)
+
+## Chat SDK Architecture
+[Chat SDK](https://chat-sdk.dev/)
+
+Search…
+`/` [GitHub](https://github.com/vercel/ai-chatbot)
+
+- Getting started
+
+- [Overview](https://chat-sdk.dev/docs/getting-started/overview)
+- [Setup](https://chat-sdk.dev/docs/getting-started/setup)
+- [Architecture](https://chat-sdk.dev/docs/getting-started/architecture)
+
+- Customization
+
+- [Models and Providers](https://chat-sdk.dev/docs/customization/models-and-providers)
+- [Artifacts](https://chat-sdk.dev/docs/customization/artifacts)
+- [Theming](https://chat-sdk.dev/docs/customization/theming)
+- [Fonts](https://chat-sdk.dev/docs/customization/fonts)
+- [Testing](https://chat-sdk.dev/docs/customization/testing)
+- [Resumable Streams](https://chat-sdk.dev/docs/customization/resumable-streams)
+
+- Migration guides
+
+- [Migrating to Message Parts](https://chat-sdk.dev/docs/migration-guides/message-parts)
+
+- Resources
+
+- [Changelog](https://chat-sdk.dev/docs/resources/changelog)
+- [Report an Issue](https://chat-sdk.dev/docs/resources/issue)
+
+Menu
+
+Getting started
+
+# Architecture
+
+A quick overview of the different parts of the Chat SDK
+
+The Chat SDK is powered by several open source libraries to support the different functionalities of the chatbot application like authentication, persistence, text generation, etc. The following is a brief overview of the architecture.
+
+![](https://chat-sdk.dev/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Farch-simple.c2240b04.png&w=3840&q=75&dpl=dpl_AtSargTRqQqbbCuWPa1jZPdspEHH)
+
+## [Application Framework](https://chat-sdk.dev/docs/getting-started/architecture\#application-framework)
+
+The Chat SDK is built to run fast on the web, so it is powered by [Next.js](http://next.org/). It uses the [App Router](https://nextjs.org/docs/app) with two main route segments – `(chat)/` and `(auth)/`. The api endpoints are located in the `api/` folder of each route segment as [route handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) which gets converted into serverless functions upon deployment.
+
+## [Model Providers](https://chat-sdk.dev/docs/getting-started/architecture\#model-providers)
+
+The primary user experience of the chatbot application is to simulate a conversation with a model that exhibits near [general intelligence](https://en.wikipedia.org/wiki/Artificial_general_intelligence) and can respond to user queries to help accomplish a task. The Chat SDK uses the [AI SDK](https://sdk.vercel.ai/) to connect to these models deployed by [various providers](https://sdk.vercel.ai/providers/ai-sdk-providers).
+
+Language Models are the most primitive types of models used in the application. It is used for generating [text](https://sdk.vercel.ai/docs/ai-sdk-core/generating-text) and [structured data](https://sdk.vercel.ai/docs/ai-sdk-core/generating-structured-data). The AI SDK ships with many features that you can use to amplify your usage of these models like [Tool Use](https://sdk.vercel.ai/docs/ai-sdk-ui/chatbot-tool-usage), [Retrieval Augmented Generation](https://sdk.vercel.ai/cookbook/node/retrieval-augmented-generation), [Reasoning](https://sdk.vercel.ai/docs/ai-sdk-ui/chatbot#reasoning), etc. Image Models and Embedding Models are the other types of models that can be used in the application, like for image generation and document retrieval, respectively.
+
+One of the main advantages of using the AI SDK is that it allows you to be specific with the kind of model and provider you'd like to use in a specific part of the application. You can learn more about it in the [Models and Providers](https://chat-sdk.dev/docs/concepts/models-and-providers) section.
+
+## [Authentication](https://chat-sdk.dev/docs/getting-started/architecture\#authentication)
+
+The Chat SDK uses [Auth.js](https://authjs.dev/) for authentication. The Chat SDK requires authentication by default to start new chats and also save them in history.
+
+## [Persistence](https://chat-sdk.dev/docs/getting-started/architecture\#persistence)
+
+Persistence is the ability to save and restore data from a database. The Chat SDK uses PostgreSQL as its database to store things like chat history, user accounts, application-wide administrative settings, etc. In order to communicate with the database from route handlers and server actions, the Chat SDK uses [Drizzle ORM](https://orm.drizzle.team/) to connect to the database and run [queries](https://github.com/vercel/ai-chatbot/blob/main/lib/db/queries.ts).
+
+Since Drizzle ORM supports multiple [database providers](https://orm.drizzle.team/docs/get-started) like [Neon](https://orm.drizzle.team/docs/get-started/neon-new) and [Supabase](https://orm.drizzle.team/docs/get-started/supabase-new), it makes it possible for you to swap between databases of your choice without having to modify your queries or schema.
+
+## [Blob Storage](https://chat-sdk.dev/docs/getting-started/architecture\#blob-storage)
+
+Blob storage allows your chatbot application to support file uploads to and retrievals from an object store. The Chat SDK uses [Vercel Blob](https://vercel.com/docs/vercel-blob) to support sending files as attachments in a chat conversation. It can also be used for storing static assets that serve different purposes like uploading an avatar for a user's profile page.
+
+## [Firewall and Rate Limiting](https://chat-sdk.dev/docs/getting-started/architecture\#firewall-and-rate-limiting)
+
+The API endpoints that the Chat SDK uses have a higher runtime duration and process expensive model tokens (depending on the model). So, any abuse or bot attacks on these endpoints can rack up significant costs quickly. As a result, it is recommended to enable the Vercel Firewall and add rate limiting rules to endpoints like `/api/chat`.
+
+Alternatively, you can use also use a key value store to track requests and define thresholds to limit usage, you can read more about it [here](https://sdk.vercel.ai/docs/advanced/rate-limiting#rate-limiting).
+
+## [Testing](https://chat-sdk.dev/docs/getting-started/architecture\#testing)
+
+The Chat SDK uses playwright to run E2E tests to simulate the possible user flows in the application and identify any breaking changes as you customize the application. The Chat SDK ships with a few test cases for the most important user flows and we're constantly working on improving the coverage. You can learn more about adding a new test case in the [Testing](https://chat-sdk.dev/docs/concepts/testing) section.
+
+## [A Closer Look at the Chatbot](https://chat-sdk.dev/docs/getting-started/architecture\#a-closer-look-at-the-chatbot)
+
+![](https://chat-sdk.dev/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Farch-complex.45ea4a4b.png&w=3840&q=75&dpl=dpl_AtSargTRqQqbbCuWPa1jZPdspEHH)
+
+**1\. Initial Navigation to Home Page:**
+
+- When the user first navigates to the home page and goes through Next.js middleware.
+- The middleware checks session status:
+  - If no session is found, the user is redirected to `/login`, authenticating the user with email and password via the `/api/auth` endpoint.
+  - If a session is available, the user reaches the chat interface with their history restored in the sidebar.
+
+**2\. Sending a Message:**
+
+- User composes and submits a message within the chat interface.
+- Optionally, the user can attach files, which uploads via `/api/files/upload`, storing the file in Vercel Blob storage. Attachments become accessible through secure URLs returned by Vercel Blob.
+- Upon submission, the `append` function from the `useChat` hook triggers the `/api/chat` endpoint
+- After passing the Vercel firewall and its rate limit rules, the message payload is sent to `/api/chat`.
+
+**3\. Processing and Model Interaction:**
+
+- The request to `/api/chat` routes to a custom model provider, which specifies which models to use for specific parts of the applcation. In this instance, there is one model for title generation and another for chat completion.
+- Using the AI SDK's `streamText` function, the chat model is then prompted with the submitted `messages` and returns the response as a [data stream](https://sdk.vercel.ai/docs/ai-sdk-ui/stream-protocol#data-stream-protocol).
+- The `useChat` hook on the client reads the data stream and constructs the response to be rendered as assistant messages to the user.
+- The response messages, now visible to the user, appears within the chat interface.
+
+**4\. Persisting Response Messages:**
+
+- After the stream has finished, the `onFinish` callback is triggered and saves the response messages to the database.
+
+**5\. User Interaction with Message:**
+
+- The user can then interact with any of the messages present in the history, performing actions like voting and editing.
+
+[Previous\\
+Setup](https://chat-sdk.dev/docs/getting-started/setup) [Next \\
+Models and Providers](https://chat-sdk.dev/docs/customization/models-and-providers)
+
+## Message Parts Migration
+[Chat SDK](https://chat-sdk.dev/)
+
+Search…
+`/` [GitHub](https://github.com/vercel/ai-chatbot)
+
+- Getting started
+
+- [Overview](https://chat-sdk.dev/docs/getting-started/overview)
+- [Setup](https://chat-sdk.dev/docs/getting-started/setup)
+- [Architecture](https://chat-sdk.dev/docs/getting-started/architecture)
+
+- Customization
+
+- [Models and Providers](https://chat-sdk.dev/docs/customization/models-and-providers)
+- [Artifacts](https://chat-sdk.dev/docs/customization/artifacts)
+- [Theming](https://chat-sdk.dev/docs/customization/theming)
+- [Fonts](https://chat-sdk.dev/docs/customization/fonts)
+- [Testing](https://chat-sdk.dev/docs/customization/testing)
+- [Resumable Streams](https://chat-sdk.dev/docs/customization/resumable-streams)
+
+- Migration guides
+
+- [Migrating to Message Parts](https://chat-sdk.dev/docs/migration-guides/message-parts)
+
+- Resources
+
+- [Changelog](https://chat-sdk.dev/docs/resources/changelog)
+- [Report an Issue](https://chat-sdk.dev/docs/resources/issue)
+
+Menu
+
+Migration guides
+
+# Migrating to Message Parts
+
+Learn how to migrate to the new message parts property in the useChat hook
+
+The release of [`@ai-sdk/react@1.1.10`](https://github.com/vercel/ai/pull/4670) introduced a new property called `parts` to messages in the `useChat` hook. We recommend rendering the messages using the `parts` property instead of the `content` property. The parts property supports different message types, including text, tool invocation, and tool result, and allows for more flexible and complex chat and agent-like user interfaces.
+
+You can read the API reference for the `parts` property [here](https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat#messages.ui-message.parts).
+
+## [Migrating your existing project to use the `parts` property](https://chat-sdk.dev/docs/migration-guides/message-parts\#migrating-your-existing-project-to-use-the-parts-property)
+
+Your existing project must already have messages stored in the database. To migrate your messages to use `parts`, you will have to create new tables for `Message` and `Vote`, backfill the new tables with transformed messages, and delete (optional) the old tables.
+
+These are the following steps:
+
+1. Create tables `Message_v2` and `Vote_v2` with updated schemas at `/lib/db/schema.ts`
+2. Update the `Message` component at `/components/message.tsx` to use parts and render content.
+3. Run migration script at `src/lib/db/helpers/01-migrate-to-parts.ts`
+
+* * *
+
+### [1\. Creating Tables with Updated Schemas](https://chat-sdk.dev/docs/migration-guides/message-parts\#1-creating-tables-with-updated-schemas)
+
+You will mark the earlier tables as deprecated and create two new tables, `Message_v2` and `Vote_v2`. Table `Message_v2` contains the updated schema that includes the `parts` property. Table `Vote_v2` does not contain schema changes but will contain votes that point to the transformed messages in `Message_v2`.
+
+Before creating the new tables, you will need to update the variables of existing tables to indicate that they are deprecated.
+
+/lib/db/schema.ts
+
+```font-mono
+export const messageDeprecated = pgTable("Message", {
+  id: uuid("id").primaryKey().notNull().defaultRandom(),
+  chatId: uuid("chatId")
+    .notNull()
+    .references(() => chat.id),
+  role: varchar("role").notNull(),
+  content: json("content").notNull(),
+  createdAt: timestamp("createdAt").notNull(),
+});
+
+export type MessageDeprecated = InferSelectModel<typeof messageDeprecated>;
+
+export const voteDeprecated = pgTable(
+  "Vote",
+  {
+    chatId: uuid("chatId")
+      .notNull()
+      .references(() => chat.id),
+    messageId: uuid("messageId")
+      .notNull()
+      .references(() => messageDeprecated.id),
+    isUpvoted: boolean("isUpvoted").notNull(),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.chatId, table.messageId] }),
+    };
+  },
+);
+
+export type VoteDeprecated = InferSelectModel<typeof voteDeprecated>;
+```
+
+After deprecating the current table schemas, you can now proceed to create schemas for the new tables.
+
+/lib/db/schema.ts
+
+```font-mono
+export const message = pgTable("Message_v2", {
+  id: uuid("id").primaryKey().notNull().defaultRandom(),
+  chatId: uuid("chatId")
+    .notNull()
+    .references(() => chat.id),
+  role: varchar("role").notNull(),
+  parts: json("parts").notNull(),
+  attachments: json("attachments").notNull(),
+  createdAt: timestamp("createdAt").notNull(),
+});
+
+export type Message = InferSelectModel<typeof message>;
+
+export const vote = pgTable(
+  "Vote_v2",
+  {
+    chatId: uuid("chatId")
+      .notNull()
+      .references(() => chat.id),
+    messageId: uuid("messageId")
+      .notNull()
+      .references(() => message.id),
+    isUpvoted: boolean("isUpvoted").notNull(),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.chatId, table.messageId] }),
+    };
+  },
+);
+
+export type Vote = InferSelectModel<typeof vote>;
+```
+
+### [2\. Updating the Message Component](https://chat-sdk.dev/docs/migration-guides/message-parts\#2-updating-the-message-component)
+
+Previously you were using content types to render messages and tool invocations. Now you will use the `parts` property to render messages and tool invocations.
+
+components/message.tsx
+
+```font-mono
+{message.parts?.map((part, index) => {
+  const { type } = part;
+  const key = `message-${message.id}-part-${index}`;
+
+  if (type === "reasoning") {
+    return (
+      <MessageReasoning
+        key={key}
+        isLoading={isLoading}
+        reasoning={part.reasoning}
+      />
+    );
+  }
+
+  if (type === "text") {
+    if (mode === "view") {
+      return (
+        <div key={key} className="flex flex-row gap-2 items-start">
+          {message.role === "user" && !isReadonly && (
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  data-testid="message-edit-button"
+                  variant="ghost"
+                  className="px-2 h-fit rounded-full text-muted-foreground opacity-0 group-hover/message:opacity-100"
+                  onClick={() => {
+                    setMode("edit");
+                  }}
+                >
+                  <PencilEditIcon />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Edit message</TooltipContent>
+            </Tooltip>
+          )}
+
+          <div
+            data-testid="message-content"
+            className={cn("flex flex-col gap-4", {
+              "bg-primary text-primary-foreground px-3 py-2 rounded-xl":
+                message.role === "user",
+            })}
+          >
+            <Markdown>{part.text}</Markdown>
+          </div>
+        </div>
+      );
+    }
+
+    if (mode === "edit") {
+      return (
+        <div key={key} className="flex flex-row gap-2 items-start">
+          <div className="size-8" />
+
+          <MessageEditor
+            key={message.id}
+            message={message}
+            setMode={setMode}
+            setMessages={setMessages}
+            reload={reload}
+          />
+        </div>
+      );
+    }
+  }
+
+  if (type === "tool-invocation") {
+    const { toolInvocation } = part;
+    const { toolName, toolCallId, state } = toolInvocation;
+
+    if (state === "call") {
+      const { args } = toolInvocation;
+
+      return (
+        <div
+          key={toolCallId}
+          className={cx({
+            skeleton: ["getWeather"].includes(toolName),
+          })}
+        >
+          {toolName === "getWeather" ? (
+            <Weather />
+          ) : toolName === "createDocument" ? (
+            <DocumentPreview isReadonly={isReadonly} args={args} />
+          ) : toolName === "updateDocument" ? (
+            <DocumentToolCall
+              type="update"
+              args={args}
+              isReadonly={isReadonly}
+            />
+          ) : toolName === "requestSuggestions" ? (
+            <DocumentToolCall
+              type="request-suggestions"
+              args={args}
+              isReadonly={isReadonly}
+            />
+          ) : null}
+        </div>
+      );
+    }
+
+    if (state === "result") {
+      const { result } = toolInvocation;
+
+      return (
+        <div key={toolCallId}>
+          {toolName === "getWeather" ? (
+            <Weather weatherAtLocation={result} />
+          ) : toolName === "createDocument" ? (
+            <DocumentPreview
+              isReadonly={isReadonly}
+              result={result}
+            />
+          ) : toolName === "updateDocument" ? (
+            <DocumentToolResult
+              type="update"
+              result={result}
+              isReadonly={isReadonly}
+            />
+          ) : toolName === "requestSuggestions" ? (
+            <DocumentToolResult
+              type="request-suggestions"
+              result={result}
+              isReadonly={isReadonly}
+            />
+          ) : (
+            <pre>{JSON.stringify(result, null, 2)}</pre>
+          )}
+        </div>
+      );
+    }
+  }
+})}
+```
+
+### [3\. Running the Migration Script](https://chat-sdk.dev/docs/migration-guides/message-parts\#3-running-the-migration-script)
+
+At this point, you can deploy your application so new messages can be stored in the new format.
+
+To restore messages of previous chat conversations, you can run the following script that applies a transformation to the old messages and stores them in the new format.
+
+shell
+
+```font-mono
+pnpm exec tsx lib/db/helpers/01-core-to-parts.ts
+```
+
+This script will take some time to complete based on the number of messages to be migrated. After completion, you can verify that the messages have been successfully migrated by checking the database.
+
+[Previous\\
+Resumable Streams](https://chat-sdk.dev/docs/customization/resumable-streams) [Next \\
+Changelog](https://chat-sdk.dev/docs/resources/changelog)
+
+## Chat SDK Overview
+[Chat SDK](https://chat-sdk.dev/)
+
+Search…
+`/` [GitHub](https://github.com/vercel/ai-chatbot)
+
+- Getting started
+
+- [Overview](https://chat-sdk.dev/docs/getting-started/overview)
+- [Setup](https://chat-sdk.dev/docs/getting-started/setup)
+- [Architecture](https://chat-sdk.dev/docs/getting-started/architecture)
+
+- Customization
+
+- [Models and Providers](https://chat-sdk.dev/docs/customization/models-and-providers)
+- [Artifacts](https://chat-sdk.dev/docs/customization/artifacts)
+- [Theming](https://chat-sdk.dev/docs/customization/theming)
+- [Fonts](https://chat-sdk.dev/docs/customization/fonts)
+- [Testing](https://chat-sdk.dev/docs/customization/testing)
+- [Resumable Streams](https://chat-sdk.dev/docs/customization/resumable-streams)
+
+- Migration guides
+
+- [Migrating to Message Parts](https://chat-sdk.dev/docs/migration-guides/message-parts)
+
+- Resources
+
+- [Changelog](https://chat-sdk.dev/docs/resources/changelog)
+- [Report an Issue](https://chat-sdk.dev/docs/resources/issue)
+
+Menu
+
+Getting started
+
+# Overview
+
+The Chat SDK is an open-source template that helps you quickly build powerful chatbot applications without starting from scratch. Whether you're launching a small side project or a full-scale enterprise solution, the Chat SDK provides the structure you need to jump right into building your own unique chatbot application.
+
+## [Features](https://chat-sdk.dev/docs/getting-started/overview\#features)
+
+Next.js App Router
+
+Build on top of the framework that achieves the best performance on the web.
+
+AI SDK
+
+Choose specific models and providers for different parts of your application.
+
+Generative User Interfaces
+
+Go beyond text and enhance your chat responses with user interfaces.
+
+Artifacts
+
+Create custom artifacts that are specific to your workflows and activities.
+
+Code Execution
+
+Run code snippets directly on the browser and display their outputs in either text or images.
+
+Multimodal
+
+Attach files, images, and all the different kinds of media your models support to your chat.
+
+Built-in Authentication
+
+Use email/password authentication to allow your users to register accounts and sign in.
+
+Sharing
+
+Allow your users to share their chats by letting them control their visibilities.
+
+[Next \\
+Setup](https://chat-sdk.dev/docs/getting-started/setup)
+
+## Chat SDK Setup
+[Chat SDK](https://chat-sdk.dev/)
+
+Search…
+`/` [GitHub](https://github.com/vercel/ai-chatbot)
+
+- Getting started
+
+- [Overview](https://chat-sdk.dev/docs/getting-started/overview)
+- [Setup](https://chat-sdk.dev/docs/getting-started/setup)
+- [Architecture](https://chat-sdk.dev/docs/getting-started/architecture)
+
+- Customization
+
+- [Models and Providers](https://chat-sdk.dev/docs/customization/models-and-providers)
+- [Artifacts](https://chat-sdk.dev/docs/customization/artifacts)
+- [Theming](https://chat-sdk.dev/docs/customization/theming)
+- [Fonts](https://chat-sdk.dev/docs/customization/fonts)
+- [Testing](https://chat-sdk.dev/docs/customization/testing)
+- [Resumable Streams](https://chat-sdk.dev/docs/customization/resumable-streams)
+
+- Migration guides
+
+- [Migrating to Message Parts](https://chat-sdk.dev/docs/migration-guides/message-parts)
+
+- Resources
+
+- [Changelog](https://chat-sdk.dev/docs/resources/changelog)
+- [Report an Issue](https://chat-sdk.dev/docs/resources/issue)
+
+Menu
+
+Getting started
+
+# Setup
+
+There are two ways to set up the Chat SDK. Deploying with Vercel is the fastest way to get started by having a live deployment up and running, while also being able to develop locally immediately.
+
+### [Use 1-click Deploy with Vercel and Develop Locally](https://chat-sdk.dev/docs/getting-started/setup\#use-1-click-deploy-with-vercel-and-develop-locally)
+
+1. Enter the 1-click deploy flow using this [link](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fai-chatbot&env=AUTH_SECRET&envDescription=Generate%20a%20random%20secret%20to%20use%20for%20authentication&envLink=https%3A%2F%2Fgenerate-secret.vercel.app%2F32&project-name=my-awesome-chatbot&repository-name=my-awesome-chatbot&demo-title=AI%20Chatbot&demo-description=An%20Open-Source%20AI%20Chatbot%20Template%20Built%20With%20Next.js%20and%20the%20AI%20SDK%20by%20Vercel&demo-url=https%3A%2F%2Fchat.vercel.ai&products=%5B%7B%22type%22%3A%22integration%22%2C%22protocol%22%3A%22ai%22%2C%22productSlug%22%3A%22grok%22%2C%22integrationSlug%22%3A%22xai%22%7D%2C%7B%22type%22%3A%22integration%22%2C%22protocol%22%3A%22ai%22%2C%22productSlug%22%3A%22api-key%22%2C%22integrationSlug%22%3A%22groq%22%7D%2C%7B%22type%22%3A%22integration%22%2C%22protocol%22%3A%22storage%22%2C%22productSlug%22%3A%22neon%22%2C%22integrationSlug%22%3A%22neon%22%7D%2C%7B%22type%22%3A%22blob%22%7D%5D).
+2. Create new project and repository of the Chat SDK
+3. Add integrations like Neon Postgres and xAI Grok to your project
+4. Clone your repository locally and link to your project using `vc link`
+5. Link environment variables using `vc env pull`
+6. Continue development locally
+7. Push changes and recreate deployment automatically
+
+### [Develop Locally and Deploy Later](https://chat-sdk.dev/docs/getting-started/setup\#develop-locally-and-deploy-later)
+
+1. Fork the Chat SDK repository on GitHub
+2. Clone your forked repository locally
+3. [Create a PostgreSQL database](https://vercel.com/marketplace/neon) and retrieve its connection string to set the `DATABASE_URL` environment variable in `.env.local`
+4. [Create a Vercel Blob store](https://vercel.com/docs/vercel-blob) and set the `BLOB_READ_WRITE_TOKEN` environment variable in `.env.local`
+5. [Sign up](https://accounts.x.ai/sign-in) for a developer account on xAI's portal and create a new API key to set the `GROK_API_KEY` environment variable in `.env.local`
+6. Install dependencies using `pnpm install`
+7. Start development server using `pnpm dev`
+
+[Previous\\
+Overview](https://chat-sdk.dev/docs/getting-started/overview) [Next \\
+Architecture](https://chat-sdk.dev/docs/getting-started/architecture)
+
